@@ -39,12 +39,12 @@ class Like extends Model
     //the next three functions dont work
     public function isLikedBy(User $user){
 
-       return (bool) $user->like->where('post_id', $this->id)->where('likes',true)->count();
+       return $user->like->where('post_id', $this->id)->where('likes',true)->count();
 
     }
     public function isDislikedBy(User $user){
 
-        return (bool) $user->like->where('post_id', $this->id)->where('likes', false )->count();
+        return $user->like->where('post_id', $this->id)->where('likes', false )->count();
     }   
     public function scopewithlikes(Builder $query)
     {
